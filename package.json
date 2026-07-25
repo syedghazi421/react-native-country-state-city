@@ -1,6 +1,6 @@
 {
   "name": "react-native-country-state-city",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A React Native package to get countries, states, and cities data",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -40,5 +40,8 @@
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-native": ">=0.60.0"
+  },
+  "dependencies": {
+    "react-native-country-state-city": "^1.0.3"
   }
 }
