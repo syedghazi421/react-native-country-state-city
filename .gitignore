@@ -12,6 +12,7 @@ __pycache__/
 # Build folders
 dist/
 build/
+lib/
 
 # OS files
 .DS_Store

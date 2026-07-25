@@ -1,12 +1,11 @@
 {
   "name": "react-native-country-state-city",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A React Native package to get countries, states, and cities data",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
-    "lib/",
-    "src/data/"
+    "lib/"
   ],
   "scripts": {
     "build": "tsc",
@@ -25,6 +24,14 @@
   ],
   "author": "syedgambalshah",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syedgambalshah/react-native-country-state-city.git"
+  },
+  "bugs": {
+    "url": "https://github.com/syedgambalshah/react-native-country-state-city/issues"
+  },
+  "homepage": "https://github.com/syedgambalshah/react-native-country-state-city#readme",
   "type": "commonjs",
   "devDependencies": {
     "@types/react": "^19.2.17",
