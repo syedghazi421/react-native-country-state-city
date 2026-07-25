@@ -1,6 +1,6 @@
 {
   "name": "react-native-country-state-city",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A React Native package to get countries, states, and cities data",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
