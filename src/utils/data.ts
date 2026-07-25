@@ -1,4 +1,4 @@
-import { Country, State } from '../types';
+import { Country, State, City } from '../types';
 import countriesData from '../data/countries.json';
 import statesData from '../data/states.json';
 
@@ -97,4 +97,79 @@ export function getCountryWithStates(
   const country = getCountryById(countryId);
   const countryStates = getStatesByCountryId(countryId);
   return { country, states: countryStates };
+}
+
+/**
+ * Get all cities (from all states)
+ */
+export function getAllCities(): City[] {
+  return states.flatMap((s) => s.cities);
+}
+
+/**
+ * Get cities by state ID
+ */
+export function getCitiesByStateId(stateId: number): City[] {
+  const state = states.find((s) => s.id === stateId);
+  return state ? state.cities : [];
+}
+
+/**
+ * Get cities by country ID
+ */
+export function getCitiesByCountryId(countryId: number): City[] {
+  return states
+    .filter((s) => s.country_id === countryId)
+    .flatMap((s) => s.cities);
+}
+
+/**
+ * Get cities by country code (ISO2)
+ */
+export function getCitiesByCountryCode(code: string): City[] {
+  return states
+    .filter((s) => s.country_code === code.toUpperCase())
+    .flatMap((s) => s.cities);
+}
+
+/**
+ * Get city by ID
+ */
+export function getCityById(id: number): City | undefined {
+  for (const state of states) {
+    const found = state.cities.find((c) => c.id === id);
+    if (found) return found;
+  }
+  return undefined;
+}
+
+/**
+ * Search cities by name (case-insensitive partial match)
+ */
+export function searchCities(query: string): City[] {
+  const q = query.toLowerCase();
+  return states.flatMap((s) =>
+    s.cities.filter((c) => c.name.toLowerCase().includes(q))
+  );
+}
+
+/**
+ * Get a state with all its cities
+ */
+export function getStateWithCities(
+  stateId: number
+): { state?: State; cities: City[] } {
+  const state = getStateById(stateId);
+  return { state, cities: state ? state.cities : [] };
+}
+
+/**
+ * Get a country with all its cities
+ */
+export function getCountryWithCities(
+  countryId: number
+): { country?: Country; cities: City[] } {
+  const country = getCountryById(countryId);
+  const countryCities = getCitiesByCountryId(countryId);
+  return { country, cities: countryCities };
 }

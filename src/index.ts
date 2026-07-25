@@ -11,6 +11,14 @@ export {
   getStateById,
   searchStates,
   getCountryWithStates,
+  getAllCities,
+  getCitiesByStateId,
+  getCitiesByCountryId,
+  getCitiesByCountryCode,
+  getCityById,
+  searchCities,
+  getStateWithCities,
+  getCountryWithCities,
 } from './utils/data';
 
 export { CountryPicker, StatePicker } from './components';
