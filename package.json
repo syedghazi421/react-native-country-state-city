@@ -26,12 +26,12 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/syedgambalshah/react-native-country-state-city.git"
+    "url": "git+https://github.com/syedghazi421/react-native-country-state-city.git"
   },
   "bugs": {
-    "url": "https://github.com/syedgambalshah/react-native-country-state-city/issues"
+    "url": "https://github.com/syedghazi421/react-native-country-state-city/issues"
   },
-  "homepage": "https://github.com/syedgambalshah/react-native-country-state-city#readme",
+  "homepage": "https://github.com/syedghazi421/react-native-country-state-city#readme",
   "type": "commonjs",
   "devDependencies": {
     "@types/react": "^19.2.17",
