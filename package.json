@@ -1,17 +1,37 @@
 {
   "name": "react-native-country-state-city",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A React Native package to get countries, states, and cities data",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/",
+    "src/data/"
+  ],
   "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "react-native",
+    "country",
+    "state",
+    "city",
+    "countries",
+    "states",
+    "cities",
+    "location"
+  ],
   "author": "syedgambalshah",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
     "@types/react": "^19.2.17",
     "typescript": "^7.0.2"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-native": ">=0.60.0"
   }
 }
