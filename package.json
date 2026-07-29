@@ -1,7 +1,7 @@
 {
   "name": "react-native-country-state-city",
-  "version": "1.0.6",
-  "description": "A React Native package to get countries, states, and cities data",
+  "version": "1.0.8",
+  "description": "A JavaScript and TypeScript library providing countries, states, and cities data for React, React Native, and other JavaScript applications.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
@@ -13,14 +13,17 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "react-native",
-    "country",
+     "country",
     "state",
     "city",
     "countries",
     "states",
     "cities",
-    "location"
+    "location",
+    "geography",
+    "reactjs",
+    "react-native",
+    "typescript"
   ],
   "author": "syedgambalshah",
   "license": "ISC",
