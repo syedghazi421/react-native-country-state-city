@@ -1,6 +1,6 @@
 # react-native-country-state-city
 
-A lightweight, zero-dependency React Native library for selecting countries, states, and cities with rich metadata like flags, phone codes, currencies, and timezones.
+A lightweight, zero-dependency library for both React Native and React JS (Web) for selecting countries, states, and cities with rich metadata like flags, phone codes, currencies, and timezones.
 
 ## Features
 
@@ -32,7 +32,9 @@ yarn add react-native-country-state-city
 
 ## Usage
 
-### UI Components
+> **Note for Web Developers**: The pre-built UI components (`CountryPicker`, `StatePicker`) are designed for **React Native**. If you are building a React JS (Web) application, use the **Utility Functions** to populate standard HTML dropdowns. See the [React JS Example](#react-js-web-example) below.
+
+### React Native UI Components
 
 #### Country Picker
 
@@ -57,7 +59,7 @@ export default function App() {
 
 #### State Picker
 
-```tsx
+```tsx  
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import { CountryPicker, StatePicker } from 'react-native-country-state-city';
@@ -86,6 +88,65 @@ export default function App() {
 }
 ```
 
+### React JS (Web) Example
+
+For standard React JS web applications, use the utility functions to populate standard HTML `<select>` elements:
+
+```jsx
+import React, { useState, useEffect } from 'react';
+import { 
+  getAllCountries, 
+  getStatesByCountryId, 
+  getCitiesByStateId 
+} from 'react-native-country-state-city/data';
+
+export default function App() {
+  const [countries, setCountries] = useState([]);
+  const [states, setStates] = useState([]);
+  const [cities, setCities] = useState([]);
+
+  const [selectedCountry, setSelectedCountry] = useState('');
+  const [selectedState, setSelectedState] = useState('');
+
+  useEffect(() => {
+    setCountries(getAllCountries());
+  }, []);
+
+  const handleCountryChange = (e) => {
+    const countryId = e.target.value;
+    setSelectedCountry(countryId);
+    setStates(countryId ? getStatesByCountryId(Number(countryId)) : []);
+    setSelectedState('');
+    setCities([]);
+  };
+
+  const handleStateChange = (e) => {
+    const stateId = e.target.value;
+    setSelectedState(stateId);
+    setCities(stateId ? getCitiesByStateId(Number(stateId)) : []);
+  };
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', maxWidth: '300px' }}>
+      <select value={selectedCountry} onChange={handleCountryChange}>
+        <option value="">Select Country</option>
+        {countries.map(c => <option key={c.id} value={c.id}>{c.emoji} {c.name}</option>)}
+      </select>
+
+      <select value={selectedState} onChange={handleStateChange} disabled={!selectedCountry}>
+        <option value="">Select State</option>
+        {states.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
+      </select>
+
+      <select disabled={!selectedState}>
+        <option value="">Select City</option>
+        {cities.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
+      </select>
+    </div>
+  );
+}
+```
+
 ### Utility Functions
 
 All functions are importable directly from the package:
@@ -109,8 +170,9 @@ import {
   getCityById,
   searchCities,
   getStateWithCities,
-  getCountryWithCities,
-} from 'react-native-country-state-city';
+} from 'react-native-country-state-city'; // For React Native
+// OR
+// } from 'react-native-country-state-city/data'; // For React JS (Web)
 ```
 
 #### Countries
