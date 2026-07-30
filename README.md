@@ -2,6 +2,21 @@
 
 A lightweight, zero-dependency library for both React Native and React JS (Web) for selecting countries, states, and cities with rich metadata like flags, phone codes, currencies, and timezones.
 
+> [!IMPORTANT]
+> ## 🚀 Import Usage Notice
+> 
+> **For React Native:**
+> Import directly from the root package:
+> ```ts
+> import { getAllCountries, CountryPicker } from 'react-native-country-state-city';
+> ```
+> 
+> **For React JS (Web):**
+> Import the data utility functions from the `/data` path to avoid React Native dependencies crashing your web bundler:
+> ```js
+> import { getAllCountries, getStatesByCountryId } from 'react-native-country-state-city/data';
+> ```
+
 ## Features
 
 * Complete country data (ISO codes, flags, phone codes, currencies, timezones)

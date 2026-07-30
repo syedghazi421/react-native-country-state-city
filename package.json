@@ -1,6 +1,6 @@
 {
   "name": "react-native-country-state-city",
-  "version": "1.0.9",
+  "version": "1.2.0",
   "description": "A JavaScript and TypeScript library providing countries, states, and cities data for React, React Native, and other JavaScript applications.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
